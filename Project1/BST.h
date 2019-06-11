@@ -134,7 +134,7 @@ int BST_FindMax(BSTNode * node)
 	else
 		return BST_FindMax(node->right);
 }
-//Maximum overload
+//Maximum overload.
 void BST_FindMax() {
 	int max = BST_FindMax(root);
 	if (max == -1) {
