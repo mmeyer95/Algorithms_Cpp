@@ -1,6 +1,7 @@
 #include <iostream>
 #include "math.h"
 #include "LL.h"
+#include "BST.h"
 
 int main() {
 	bool LinkedList = false;
@@ -8,30 +9,33 @@ int main() {
 
 	//Linked List implementation
 	if (LinkedList == true) {
-		Insert(5);
-		Insert(10);
-		Insert(11);
-		Insert(6);
+		LL_Insert(5);
+		LL_Insert(10);
+		LL_Insert(11);
+		LL_Insert(6);
 
 		std::cout << "Linked list: \n" << std::endl;
-		PrintLinkedList();
+		LL_PrintLinkedList();
 
-		Remove(10);
+		LL_Remove(10);
 		std::cout << "Linked list: \n" << std::endl;
-		PrintLinkedList();
+		LL_PrintLinkedList();
 
-		Remove(5);
+		LL_Remove(5);
 		std::cout << "Linked list: \n" << std::endl;
-		PrintLinkedList();
+		LL_PrintLinkedList();
 
-		Insert(22);
+		LL_Insert(22);
 		std::cout << "Linked list: \n" << std::endl;
-		PrintLinkedList();
+		LL_PrintLinkedList();
 	}
 
 	//Binary Search Tree implementation
 	if (BST == true) {
-
+		BST_Insert(5);
+		BST_Insert(10);
+		BST_Insert(11);
+		BST_Insert(6);
 	}
 
 	system("pause");
