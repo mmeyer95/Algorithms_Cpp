@@ -33,7 +33,7 @@ BSTNode * BST_Insert(BSTNode * node, int value) {
 
 	return node;
 }
-
+//Insert overload
 void BST_Insert(int value) {
 	root = BST_Insert(root, value);
 }
@@ -55,7 +55,7 @@ BSTNode * BST_Remove(BSTNode * node, int value) {
 	}
 	return node;
 }
-
+//Remove overload
 void BST_Remove(int value) {
 	root = BST_Remove(root, value);
 }
@@ -70,7 +70,7 @@ void BST_PrintNodesInOrder(BSTNode * node) {
 	BST_PrintNodesInOrder(node->right);
 	return;
 }
-
+//Print nodes overload
 void BST_PrintNodesInOrder() {
 	std::cout << "Nodes in order are: ";
 	BST_PrintNodesInOrder(root);
@@ -92,7 +92,7 @@ BSTNode * BST_Search(BSTNode * node, int value) {
 		return node;
 	}
 }
-
+//Search overload
 void BST_Search(int value) {
 	BSTNode * node = BST_Search(root, value);
 	if (node==NULL) {
@@ -113,7 +113,7 @@ int BST_FindMin(BSTNode * node)
 	else
 		return BST_FindMin(node->left);
 }
-
+//Minimum overload
 void BST_FindMin() {
 	int min = BST_FindMin(root);
 	if (min == -1) {
@@ -134,7 +134,7 @@ int BST_FindMax(BSTNode * node)
 	else
 		return BST_FindMax(node->right);
 }
-
+//Maximum overload
 void BST_FindMax() {
 	int max = BST_FindMax(root);
 	if (max == -1) {
