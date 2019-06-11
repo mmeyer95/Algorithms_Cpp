@@ -60,7 +60,7 @@ void BST_Remove(int value) {
 	root = BST_Remove(root, value);
 }
 
-///PRINT ALL NODES IN ASCENDING ORDER
+//PRINT ALL NODES IN ASCENDING ORDER
 void BST_PrintNodesInOrder(BSTNode * node) {
 	if (node == NULL) {
 		return;
