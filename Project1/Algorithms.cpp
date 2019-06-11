@@ -32,10 +32,32 @@ int main() {
 
 	//Binary Search Tree implementation
 	if (BST == true) {
-		BST_Insert(5);
-		BST_Insert(10);
-		BST_Insert(11);
-		BST_Insert(6);
+		BST_Insert(23);
+		BST_Insert(12);
+		BST_Insert(15);
+		BST_Insert(31);
+		BST_Insert(88);
+		BST_Insert(15);
+		BST_Insert(3);
+		BST_Insert(7);
+		BST_Insert(29);
+		BST_Insert(53);
+
+		BST_PrintNodesInOrder();
+		BST_FindMax();
+		BST_FindMin();
+		BST_Search(31);
+		BST_Search(2);
+
+		BST_Remove(31);
+		BST_Insert(2);
+		BST_PrintNodesInOrder();
+		BST_FindMax();
+		BST_FindMin();
+
+		BST_Search(31);
+		BST_Search(2);
+
 	}
 
 	system("pause");
