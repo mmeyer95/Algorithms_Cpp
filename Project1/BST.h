@@ -38,6 +38,48 @@ void BST_Insert(int value) {
 	root = BST_Insert(root, value);
 }
 
+//FIND MINIMUMUM VALUE NODE
+int BST_FindMin(BSTNode * node)
+{
+	if (node == NULL)
+		return -1;
+	else if (node->left == NULL)
+		return node->value;
+	else
+		return BST_FindMin(node->left);
+}
+//Minimum overload
+void BST_FindMin() {
+	int min = BST_FindMin(root);
+	if (min == -1) {
+		std::cout << "No nodes in tree." << std::endl;
+	}
+	else {
+		std::cout << "Minimum value is: " << min << std::endl;
+	}
+}
+
+//FIND MAXIMUM VALUE NODE
+int BST_FindMax(BSTNode * node)
+{
+	if (node == NULL)
+		return -1;
+	else if (node->right == NULL)
+		return node->value;
+	else
+		return BST_FindMax(node->right);
+}
+//Maximum overload.
+void BST_FindMax() {
+	int max = BST_FindMax(root);
+	if (max == -1) {
+		std::cout << "No nodes in tree." << std::endl;
+	}
+	else {
+		std::cout << "Maximum value is: " << max << std::endl;
+	}
+}
+
 //REMOVE A NODE FROM BST
 BSTNode * BST_Remove(BSTNode * node, int value) {
 	if (node == NULL) {
@@ -50,9 +92,24 @@ BSTNode * BST_Remove(BSTNode * node, int value) {
 	else if (node->value > value) {
 		node->left = BST_Remove(node->left, value);
 	}
-	else {
-
+	if (node->value == value){
+		if (node->left == NULL && node->right == NULL) {
+			node = NULL;
+		}
+		else if (node->left==NULL && node->right != NULL) {
+			node->right->parent = node->parent;
+			node = node->right;
+		}
+		else if (node->right == NULL && node->left != NULL) {
+			node->left->parent = node->parent;
+			node = node->left;
+		}
+		else {
+			node->value = BST_FindMin(node->right);
+			node->right= BST_Remove(node->right, node->value);
+		}
 	}
+
 	return node;
 }
 //Remove overload
@@ -99,48 +156,20 @@ void BST_Search(int value) {
 		std::cout << "Value " << value << " not found." << std::endl;
 	}
 	else {
-		std::cout << "Value " << node->value << " found." << std::endl;
+		std::cout << "Value " << value << " found." << std::endl;
 	}
 }
 
-//FIND MINIMUMUM VALUE NODE
-int BST_FindMin(BSTNode * node)
-{
-	if (node == NULL)
-		return -1;
-	else if (node->left == NULL)
-		return node->value;
-	else
-		return BST_FindMin(node->left);
-}
-//Minimum overload
-void BST_FindMin() {
-	int min = BST_FindMin(root);
-	if (min == -1) {
-		std::cout << "No nodes in tree." << std::endl;
-	}
-	else {
-		std::cout << "Minimum value is: " << min << std::endl;
-	}
-}
 
-//FIND MAXIMUM VALUE NODE
-int BST_FindMax(BSTNode * node)
-{
-	if (node == NULL)
-		return -1;
-	else if (node->right == NULL)
-		return node->value;
-	else
-		return BST_FindMax(node->right);
-}
-//Maximum overload.
-void BST_FindMax() {
-	int max = BST_FindMax(root);
-	if (max == -1) {
-		std::cout << "No nodes in tree." << std::endl;
+
+//Find next largest node value for replacement
+/*int BST_Successor(BSTNode * node, int value) {
+	if (node->right != NULL) {
+		return BST_FindMin(node->right);
 	}
 	else {
-		std::cout << "Maximum value is: " << max << std::endl;
+
 	}
-}
+
+	return 0;
+}*/

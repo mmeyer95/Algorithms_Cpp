@@ -51,10 +51,15 @@ int main() {
 
 		BST_Remove(31);
 		BST_Insert(2);
+		BST_Insert(100);
+		BST_Insert(95);
+		BST_Insert(98);
 		BST_PrintNodesInOrder();
 		BST_FindMax();
 		BST_FindMin();
 
+		BST_Remove(98);
+		BST_PrintNodesInOrder();
 		BST_Search(31);
 		BST_Search(2);
 
